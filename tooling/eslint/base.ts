@@ -2,6 +2,7 @@ import * as path from "node:path";
 import { includeIgnoreFile } from "@eslint/compat";
 import eslint from "@eslint/js";
 import importPlugin from "eslint-plugin-import";
+import jsdocPlugin from "eslint-plugin-jsdoc";
 import turboPlugin from "eslint-plugin-turbo";
 import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
@@ -44,6 +45,7 @@ export const baseConfig = defineConfig(
     files: ["**/*.js", "**/*.ts", "**/*.tsx"],
     plugins: {
       import: importPlugin,
+      jsdoc: jsdocPlugin,
       turbo: turboPlugin,
     },
     extends: [
@@ -54,6 +56,7 @@ export const baseConfig = defineConfig(
     ],
     rules: {
       ...turboPlugin.configs.recommended.rules,
+      ...jsdocPlugin.configs["flat/recommended-typescript-error"].rules,
       "@typescript-eslint/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
