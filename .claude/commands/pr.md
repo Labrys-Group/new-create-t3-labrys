@@ -32,7 +32,26 @@ git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || echo "No ups
 
 If there's no upstream, assume the base branch is the default branch (main/master).
 
-## 3. Analyze the Changes
+## 3. Check for PR Template
+
+Check for the repository's PR template:
+
+```bash
+# Check for PR template in common locations
+if [ -f .github/PULL_REQUEST_TEMPLATE.md ]; then
+  cat .github/PULL_REQUEST_TEMPLATE.md
+elif [ -f .github/pull_request_template.md ]; then
+  cat .github/pull_request_template.md
+elif [ -f docs/PULL_REQUEST_TEMPLATE.md ]; then
+  cat docs/PULL_REQUEST_TEMPLATE.md
+elif [ -f PULL_REQUEST_TEMPLATE.md ]; then
+  cat PULL_REQUEST_TEMPLATE.md
+else
+  echo "No PR template found"
+fi
+```
+
+## 4. Analyze the Changes
 
 Get comprehensive information about all changes since the branch point:
 
@@ -47,49 +66,25 @@ git diff <base-branch>...HEAD
 git diff <base-branch>...HEAD --stat
 ```
 
-## 4. Generate PR Description
+## 5. Generate PR Description
 
-Based on the commits, diff, and changed files, create a comprehensive PR description with:
+**If a PR template was found in step 3:**
+- Use the template structure as the base
+- Fill in each section of the template with relevant information from the commits and diff
+- Replace HTML comments with actual content
+- Keep all template sections, even if some are brief
 
-- **Title**: Clear, concise summary of the changes (should follow conventional commits format if the commits do)
-- **Summary**: 2-4 sentence overview of what this PR accomplishes and why
-- **Changes**: Bulleted list of key changes organized by category (features, fixes, refactors, etc.)
-- **Technical Details**: Any important implementation details, architectural decisions, or gotchas
-- **Testing**: What testing was done or should be done
-- **Breaking Changes**: List any breaking changes (if applicable)
+**If no PR template was found:**
+- Generate a description with these sections: Summary, Changes, Technical Details, Testing, Breaking Changes
 
-Use this format:
+**In both cases:**
+- Analyze the full diff, not just commit messages
+- Be thorough but concise
+- Use proper markdown formatting
+- Include checkboxes for testing items
+- Add the Claude Code footer: `---\n🤖 Generated with [Claude Code](https://claude.com/claude-code)`
 
-```markdown
-## Summary
-[2-4 sentences describing what and why]
-
-## Changes
-### Features
-- [Feature 1]
-- [Feature 2]
-
-### Fixes
-- [Fix 1]
-
-### Refactors
-- [Refactor 1]
-
-## Technical Details
-[Important implementation notes, architectural decisions]
-
-## Testing
-- [ ] [Test case 1]
-- [ ] [Test case 2]
-
-## Breaking Changes
-[List breaking changes or write "None"]
-
----
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-```
-
-## 5. Check for Existing PR
+## 6. Check for Existing PR
 
 Check if a PR already exists for this branch:
 
@@ -97,7 +92,7 @@ Check if a PR already exists for this branch:
 gh pr view --json number,title,body 2>&1
 ```
 
-## 6. Create or Update PR
+## 7. Create or Update PR
 
 **If PR exists:**
 - Update the PR description with the generated content using:
