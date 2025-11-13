@@ -18,6 +18,16 @@ This is a T3 Turbo monorepo template - a Turborepo-based full-stack TypeScript p
 - Node.js: ^22.21.0
 - pnpm: ^10.19.0
 
+## Coding Standards
+
+Follow these standards when working in this codebase:
+
+{{file:.standards/typescript.md}}
+
+{{file:.standards/react.md}}
+
+{{file:.standards/git.md}}
+
 ## Common Commands
 
 ### Initial Setup

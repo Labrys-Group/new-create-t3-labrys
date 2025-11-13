@@ -1,0 +1,3 @@
+# TypeScript Standards
+
+PLACEHOLDER
