@@ -18,3 +18,10 @@ All these are optional depending on the size and context of the work being done.
 
 * Provide the paths at which the UI have changed and instructions on how to navigate to the areas affected by the PR
 * Explain how it was before and how these changes affect the UI/system, what should people notice after the changes have been introduced
+
+## Key decisions
+
+* Important decisions with ramifications on future work
+* Tradeoffs
+* Heads up for new reusable components
+
