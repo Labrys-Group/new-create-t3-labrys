@@ -6,12 +6,8 @@ This directory contains the coding standards and best practices for projects usi
 
 Each standards file covers a specific aspect of development:
 
-- **typescript.md** - TypeScript coding conventions
-- **react.md** - React and component best practices
-- **api.md** - API design and tRPC patterns
-- **database.md** - Database schema and query conventions
-- **testing.md** - Testing standards and practices
 - **git.md** - Git workflow and commit conventions
+- **naming.md** - The naming conventions we follow
 
 ## Usage
 
@@ -24,3 +20,4 @@ When adding or updating standards:
 2. Be specific and actionable
 3. Include examples where helpful
 4. Update this README when adding new standards files
+5. Add it to the agent-context.md file
