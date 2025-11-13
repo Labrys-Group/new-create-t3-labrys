@@ -12,7 +12,7 @@ All these are optional depending on the size and context of the work being done.
 * You might include some names of components/files for clarity, but is meant to be a general description
 * Highlight the starting point for the review, like the highest level component or page
 * Link to the automated test that proves the feature is working
-* Provide a sequence or class diagram of the areas affected, with accurate names of the components and functions involved
+* Provide a sequence or class diagram of the areas affected, with accurate names of the components and functions involved. This is optional unless you generated it with an agent or created one for the work (smart contract designs for instance).
 
 ## QA
 
