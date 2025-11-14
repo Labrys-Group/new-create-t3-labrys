@@ -17,9 +17,9 @@ describe("createPost", () => {
     await db.insert(Post).values({ title, content });
 
     const posts = await db.select().from(Post);
-    expect(posts).lengthOf(1);
+    expect(posts).toHaveLength(1);
 
-    expect(posts[0]?.title).eq(title);
-    expect(posts[0]?.content).eq(content);
+    expect(posts[0]?.title).toBe(title);
+    expect(posts[0]?.content).toBe(content);
   });
 });
