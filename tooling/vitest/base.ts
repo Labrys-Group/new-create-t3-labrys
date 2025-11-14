@@ -1,8 +1,8 @@
-import type { UserConfig } from "vitest/config";
+import { ViteUserConfig } from "vitest/config";
 
 export default {
   test: {
     globals: true,
     environment: "node",
   },
-} satisfies UserConfig;
+} satisfies ViteUserConfig;
