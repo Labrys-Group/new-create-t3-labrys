@@ -20,4 +20,4 @@ When adding or updating standards:
 2. Be specific and actionable
 3. Include examples where helpful
 4. Update this README when adding new standards files
-5. Add it to the agent-context.md file
+5. Add it to [agent-context.md](./agent-context.md)
