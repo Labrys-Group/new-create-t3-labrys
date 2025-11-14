@@ -1,7 +1,7 @@
 import path from "path";
-import { drizzle } from "drizzle-orm/pglite";
 import type { PgliteDatabase } from "drizzle-orm/pglite";
 import type { PostgresJsDatabase } from "drizzle-orm/postgres-js/driver";
+import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/postgres-js/migrator";
 
 import * as schema from "../schema";
